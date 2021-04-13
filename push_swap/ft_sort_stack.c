@@ -8,14 +8,13 @@ t_stack    *ft_sort_stack(t_stack **head_stack_a, t_stack *head_stack_b, int lis
 	int *array;
 	array = ft_create_array_from_list(list_size, (*head_stack_a));
 	if (!ft_check_if_stack_is_sorted(array, list_size))
-		ft_sort_stack_a(head_stack_a, &head_stack_b, list_size, sorted_a); //sorted_a = 0
+		ft_sort_stack_a(head_stack_a, &head_stack_b, list_size, sorted_a);
 	free(array);
 	return (NULL);
 }
 
 int	ft_sort_stack_a(t_stack **head_stack_a, t_stack **head_stack_b, int list_size, int sorted_a)
 {
-	// static int a;
 	int *array;
 	int	*segment_size;
 	int	tmp_segm_size;
@@ -28,12 +27,9 @@ int	ft_sort_stack_a(t_stack **head_stack_a, t_stack **head_stack_b, int list_siz
 	segment_size = (int *)malloc(sizeof(int) * (list_size / 2));
 	ft_bzero(segment_size, (list_size / 2) * sizeof(int));
 	k = 0;
-	// printf("A "); ft_print(*head_stack_a);
-
 	while (list_size > 3)
 	{
 		median = ft_get_median((*head_stack_a), list_size);
-		// printf("median = %d\n", median);
 		i = 0;
 		b = 0;
 		tmp_segm_size = ft_lstsize((t_list *)(*head_stack_b));
@@ -52,20 +48,11 @@ int	ft_sort_stack_a(t_stack **head_stack_a, t_stack **head_stack_b, int list_siz
 			ft_rra(head_stack_a);
 		segment_size[k++] = ft_lstsize((t_list *)(*head_stack_b)) - tmp_segm_size;
 		list_size = ft_lstsize((t_list *)(*head_stack_a)) - sorted_a;
-		// printf("B \n"); ft_print(*head_stack_a);
 	}
-	// printf("C "); ft_print(*head_stack_a);
-
-	// ft_trash(head_stack_a, (*head_stack_b), segment_size);
-	// if (sorted_a == 5)
-		// printf("list_size %d\n", list_size);
 	if (list_size == 2)
 		sorted_a = ft_sort_if_2_elements(head_stack_a, sorted_a);
 	else if (list_size == 3)
 		sorted_a = ft_sort_if_3_elements(head_stack_a, sorted_a);
-	// printf ("sorted a = %d\n", sorted_a);
-
-	// printf("D "); ft_print(*head_stack_a);
 	while (--k >= 0)
 	{
 		i = 0;
@@ -116,16 +103,10 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 	int i;
 	int	flag;
 
-	// while ()
-	(void)sorted_a;
-	(void)i;
 	flag = 0;
 	value_0 = (*head)->value;
 	value_1 = (*head)->next->value;
 	value_2 = (*head)->next->next->value;
-
-	// printf("v  %d %d %d\n", value_0, value_1, value_2);
-	// printf("h0 %d %d %d %d\n", (*head)->value, (*head)->next->value, (*head)->next->next->value, (*head)->next->next->next->value);
 	if (value_1 < value_2 && value_0 > value_2)
 	{
 		if (sorted_a == 0)
@@ -133,7 +114,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			flag = 1;
 			ft_ra(head);
 		}
-		else // while dont need
+		else
 		{
 			flag = 1;
 			ft_sa(head);
@@ -150,7 +131,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			flag = 1;
 			ft_sa(head);
 		}
-		else // while dont need
+		else
 		{
 			flag = 1;
 			ft_sa(head);
@@ -167,7 +148,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			ft_ra(head);
 			ft_sa(head);
 		}
-		else // while dont need
+		else
 		{
 			flag = 1;
 			ft_ra(head);
@@ -187,7 +168,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			flag = 1;
 			ft_rra(head);
 		}
-		else // while dont need
+		else
 		{
 			flag = 1;
 			ft_ra(head);
@@ -208,7 +189,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			ft_sa(head);
 			ft_rra(head);
 		}
-		else // while dont need
+		else
 		{
 			flag = 1;
 			ft_ra(head);
@@ -227,13 +208,6 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 			ft_ra(head);
 		}
 	}
-	// i = 0;
-	// while (i < 3 && sorted_a > 0 && !flag)
-	// {
-	// 	ft_ra(head);
-	// 	i++;
-	// }
-	// printf("h1  %d %d %d\n", (*head)->value, (*head)->next->value, (*head)->next->next->value);
 	return (sorted_a + 3);
 }
 
