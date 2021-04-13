@@ -33,7 +33,7 @@ int    *ft_create_array_from_list(int list_size, t_stack *head);
 void    ft_print_array(int *array, int size); // delete
 
 /******************FT_SORT_STACK.C******************/
-t_stack    *ft_sort_stack(t_stack **head_stack_a, t_stack *head_stack_b, int list_size, int flag);
+void	ft_sort_stack_main(t_stack **head_stack_a, t_stack *head_stack_b, int list_size, int flag);
 
 /******************FT_SWAP.C******************/
 void    ft_sa(t_stack **head_stack_a);
@@ -64,6 +64,8 @@ void	ft_free_stack(t_stack *head);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_bzero(void *s, size_t n);
 
+
+void	ft_trash(t_stack **head_stack_a, t_stack *head_stack_b, int *segment_size); // delete
 //89 131 51 496 335 174 213 453 266 337 277 421 403 276 71 155 99 27 346 464
 //93 97 66 16 3 74 60 51 69 40 73 65 64 79 78
 //7032 1787 3767 2939 1815 9440 6296 7191 7396 1190 1000 3601 1390 2571 9002
