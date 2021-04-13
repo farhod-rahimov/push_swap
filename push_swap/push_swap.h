@@ -14,6 +14,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 } t_stack;
 
+typedef struct s_sort
+{
+	t_stack	**head_stack_a;
+	t_stack	**head_stack_b;
+	int		list_size;
+	int		sorted_a;
+	int		*segment_size;
+} t_sort;
 
 /******************FT_GET_STACK_DATA.C******************/
 void    ft_get_stack_data(t_stack *head_stack_a, char **arv);
