@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-static	void	ft_check_duplicates(int *array, size_t size, int value_check);
-
 void	ft_get_stack_data(t_stack *head_stack_a, char **argv)
 {
 	t_stack	*current;
