@@ -23,7 +23,7 @@ void	ft_check_duplicates_main(t_stack *head_stack_a);
 /******************ft_GET_MEDIAN.C******************/
 int    ft_get_median(t_stack *head, int list_size);
 int		ft_check_if_stack_is_sorted(int	*array, int list_size);
-void	ft_sort_array(int *array, int start, int median);
+void	ft_sort_array(int *array, int left, int right, int tmp);
 int		ft_sort_if_3_elements(t_stack **head, int sorted_a);
 int		ft_sort_if_2_elements(t_stack **head, int sorted_a);
 // void	ft_sort_if_3_elements(t_stack **head, int list_size, int flag);

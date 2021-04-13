@@ -1,20 +1,19 @@
 #include "push_swap.h"
 
-int    ft_get_median(t_stack *head, int list_size)
+int	ft_get_median(t_stack *head, int list_size)
 {
-	int     *array;
-	int		median;
+	int	*array;
+	int	median;
 
 	if (list_size == 1)
 		return (head->value);
 	array = ft_create_array_from_list(list_size, head);
 	if (!ft_check_if_stack_is_sorted(array, list_size))
-		ft_sort_array(array, 0, list_size - 1);
+		ft_sort_array(array, 0, list_size - 1, 0);
 	if (list_size % 2 == 0)
 		median = (array[(list_size / 2)] + array[list_size / 2 - 1]) / 2;
 	else
 		median = array[list_size / 2];
-	// ft_print_array(array, list_size);
 	free(array);
 	return (median);
 }
@@ -39,9 +38,8 @@ int	ft_check_if_stack_is_sorted(int	*array, int list_size)
 	return (1);
 }
 
-void	ft_sort_array(int *array, int left, int right)
+void	ft_sort_array(int *array, int left, int right, int tmp)
 {
-	int	tmp;
 	int	pivot;
 	int	initial_left;
 	int	initial_right;
@@ -60,18 +58,16 @@ void	ft_sort_array(int *array, int left, int right)
 			if (left <= right)
 			{
 				tmp = array[left];
-				array[left] = array[right];
-				array[right] = tmp;
-				left++;
-				right--;
+				array[left++] = array[right];
+				array[right--] = tmp;
 			}
 		}
-		ft_sort_array(array, initial_left, right);
-		ft_sort_array(array, left, initial_right);
+		ft_sort_array(array, initial_left, right, 0);
+		ft_sort_array(array, left, initial_right, 0);
 	}
 }
 
-int		*ft_create_blank_array(int size)
+int	*ft_create_blank_array(int size)
 {
 	int	*array;
 
@@ -81,9 +77,9 @@ int		*ft_create_blank_array(int size)
 	return (array);
 }
 
-int    *ft_create_array_from_list(int list_size, t_stack *tmp)
+int	*ft_create_array_from_list(int list_size, t_stack *tmp)
 {
-	int i;
+	int	i;
 	int	*array;
 
 	array = (int *)malloc(sizeof(int) * list_size);
@@ -96,14 +92,4 @@ int    *ft_create_array_from_list(int list_size, t_stack *tmp)
 		tmp = tmp->next;
 	}
 	return (array);
-}
-
-void    ft_print_array(int *array, int size)
-{
-    int i;
-
-    i = 0;
-    while (i < size)
-        printf("%d ", array[i++]);
-    printf("\n");
 }

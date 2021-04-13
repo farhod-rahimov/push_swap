@@ -9,6 +9,7 @@ SRCS =			./main.c \
 				./utils/ft_bzero.c \
 				./ft_get_median.c \
 				./ft_sort_stack.c \
+				./trash.c \
 				./operations/ft_push.c \
 				./operations/ft_rotate_reverse.c \
 				./operations/ft_rotate.c \
