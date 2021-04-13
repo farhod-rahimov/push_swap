@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void    ft_error(char *str)
+void	ft_error(char *str)
 {
 	write(2, str, ft_strlen(str));
 	exit(1);
@@ -17,10 +17,9 @@ t_stack	*ft_create_new_stack(void)
 	return (new_stack);
 }
 
-
-t_stack *ft_push_back_list(t_stack *prev, long long int value)
+t_stack	*ft_push_back_list(t_stack *prev, long long int value)
 {
-	t_stack *new_element;
+	t_stack	*new_element;
 
 	if (value > MAX_INT || value < MIN_INT)
 		ft_error(ERROR);
@@ -33,7 +32,7 @@ t_stack *ft_push_back_list(t_stack *prev, long long int value)
 	return (new_element);
 }
 
-void    ft_print(t_stack *head)
+void	ft_print(t_stack *head)
 {
 	while (head)
 	{

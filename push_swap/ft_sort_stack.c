@@ -100,7 +100,7 @@ int	ft_sort_if_3_elements(t_stack **head, int sorted_a)
 	int	value_0;
 	int	value_1;
 	int	value_2;
-	int i;
+	// int i;
 	int	flag;
 
 	flag = 0;

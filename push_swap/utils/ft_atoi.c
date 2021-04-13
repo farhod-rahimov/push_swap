@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: btammara <btammara@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 13:25:30 by btammara          #+#    #+#             */
-/*   Updated: 2021/04/09 17:34:15 by btammara         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../push_swap.h"
 
 static	long long int	ft_atoi_ft(const char *str, long long int i)
@@ -49,6 +37,35 @@ static	long long int	ft_atoi_min(const char *s)
 	return (ret = ret_min * -1);
 }
 
+static	int	helper(const char *str, int i, int a, long long int *ret)
+{
+	int	ret_value;
+
+	ret_value = 0;
+	if ((str[i] < '0' || str[i] > '9') && str[a] != '-' && str[a] != '+')
+		ret_value = 1 ;
+	else if (str[a] == '-')
+	{
+		*ret = ft_atoi_min(str + a);
+		ret_value = 1 ;
+	}
+	else if (str[a] == '+')
+	{
+		*ret = ft_atoi_min(str + a) * -1;
+		ret_value = 1 ;
+	}
+	return (ret_value);
+}
+
+static	void	ft_check_error(long long int ret, const char *str)
+{
+	if (ret > 2147483647 || ret < -2147483648 || ft_strlen(str) > 11)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+}
+
 long long int	ft_atoi(const char *str)
 {
 	long long int	i;
@@ -58,32 +75,19 @@ long long int	ft_atoi(const char *str)
 
 	i = 0;
 	ret = 0;
-	if ((ii = ft_atoi_ft(str, i)) == -2)
+	ii = ft_atoi_ft(str, i);
+	if (ii == -2)
 		return (0);
 	i = ii;
 	while (str[i])
 	{
 		a = i;
-		if ((str[i] < '0' || str[i] > '9') && str[a] != '-' && str[a] != '+')
+		if (helper(str, i, a, &ret))
 			break ;
-		else if (str[a] == '-')
-		{
-			ret = ft_atoi_min(str + a);
-			break ;
-		}
-		else if (str[a] == '+')
-		{
-			ret = ft_atoi_min(str + a) * -1;
-			break ;
-		}
 		ret = ret * 10 + (str[i++] - 48);
 		if (str[i] < '0' || str[i] > '9')
 			break ;
 	}
-	if (ret > 2147483647 || ret < -2147483648 || ft_strlen(str) > 11)
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+	ft_check_error(ret, str);
 	return (ret);
 }
