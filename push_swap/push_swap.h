@@ -73,6 +73,14 @@ void	ft_free_stack(t_stack *head);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_bzero(void *s, size_t n);
 
+void	case_1(t_stack **head, int sorted_a);
+void	case_2(t_stack **head, int sorted_a);
+void	case_3(t_stack **head, int sorted_a);
+void	case_4(t_stack **head, int sorted_a);
+void	case_5(t_stack **head, int sorted_a);
+void	case_6(t_stack **head, int sorted_a);
+
+
 
 void	ft_trash(t_stack **head_stack_a, t_stack *head_stack_b, int *segment_size); // delete
 //89 131 51 496 335 174 213 453 266 337 277 421 403 276 71 155 99 27 346 464

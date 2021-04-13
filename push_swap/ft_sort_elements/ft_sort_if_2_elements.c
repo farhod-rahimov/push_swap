@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_sort_if_2_elements(t_stack **head, int sorted_a)
 {
