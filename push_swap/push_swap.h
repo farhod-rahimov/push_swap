@@ -20,7 +20,7 @@ typedef struct s_sort
 	t_stack	**head_stack_b;
 	int		list_size;
 	int		sorted_a;
-	int		*segment_size;
+	int		*segm_size;
 } t_sort;
 
 /******************FT_GET_STACK_DATA.C******************/
@@ -42,6 +42,7 @@ void    ft_print_array(int *array, int size); // delete
 
 /******************FT_SORT_STACK.C******************/
 void	ft_sort_stack_main(t_stack **head_stack_a, t_stack *head_stack_b, int list_size, int flag);
+int		ft_sort_stack_a(t_stack **head_stack_a, t_stack **head_stack_b, int list_size, int sorted_a);
 
 /******************FT_SWAP.C******************/
 void    ft_sa(t_stack **head_stack_a);
