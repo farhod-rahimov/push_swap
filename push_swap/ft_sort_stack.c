@@ -76,7 +76,7 @@ int	ft_sort_stack_a(t_stack **head_stack_a, t_stack **head_stack_b, int list_siz
 			ft_pa(head_stack_a, head_stack_b);
 			i++;
 		}
-		array = ft_create_array_from_list(segment_size[k], (*head_stack_a));
+		array = ft_create_array_from_list(segment_size[k], (*head_stack_b));
 		if (!ft_check_if_stack_is_sorted(array, segment_size[k]))
 			sorted_a = ft_sort_stack_a(head_stack_a, head_stack_b, segment_size[k], sorted_a);
 		else
