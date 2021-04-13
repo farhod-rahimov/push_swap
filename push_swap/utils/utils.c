@@ -32,16 +32,6 @@ t_stack	*ft_push_back_list(t_stack *prev, long long int value)
 	return (new_element);
 }
 
-void	ft_print(t_stack *head)
-{
-	while (head)
-	{
-		printf("%d ", head->value);
-		head = head->next;
-	}
-	printf("\n");
-}
-
 void	ft_free_stack(t_stack *head)
 {
 	t_stack	*tmp;

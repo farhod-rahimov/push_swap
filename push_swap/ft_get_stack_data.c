@@ -2,10 +2,10 @@
 
 static	void	ft_check_duplicates(int *array, size_t size, int value_check);
 
-void    ft_get_stack_data(t_stack *head_stack_a, char **argv)
+void	ft_get_stack_data(t_stack *head_stack_a, char **argv)
 {
 	t_stack	*current;
-	int	i;
+	int		i;
 
 	ft_check_if_args_are_int(argv);
 	current = head_stack_a;
@@ -14,7 +14,6 @@ void    ft_get_stack_data(t_stack *head_stack_a, char **argv)
 	while (argv[i])
 		current = ft_push_back_list(current, ft_atoi(argv[i++]));
 	ft_check_duplicates_main(head_stack_a);
-	// ft_print(head_stack_a);
 }
 
 void	ft_check_if_args_are_int(char **argv)
