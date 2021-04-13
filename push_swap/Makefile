@@ -7,6 +7,7 @@ SRCS =			./main.c \
 				./utils/ft_isdigit.c \
 				./utils/ft_lstlast.c \
 				./utils/ft_bzero.c \
+				./utils/ft_split.c \
 				./ft_get_median.c \
 				./ft_sort_stack.c \
 				./sort_elements/ft_sort_if_3_elements.c \

@@ -9,6 +9,7 @@ SRCS =			./main.c \
 				./utils/ft_lstsize.c \
 				./utils/ft_strdup.c \
 				./utils/ft_strlen.c \
+				./utils/ft_split.c \
 				./ft_get_instructions.c \
 				./ft_exec_instructions.c \
 				./ft_check_if_stack_is_sorted.c \
