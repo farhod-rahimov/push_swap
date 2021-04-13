@@ -86,7 +86,7 @@ int	*ft_create_array_from_list(int list_size, t_stack *tmp)
 	if (array == NULL)
 		ft_error(ERROR);
 	i = 0;
-	while (i < list_size)
+	while (i < list_size && tmp)
 	{
 		array[i++] = tmp->value;
 		tmp = tmp->next;

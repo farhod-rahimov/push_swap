@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     ft_sort_stack_main(&head_stack_a, NULL, ft_lstsize((t_list *)head_stack_a), 0);
     // while (1)
     //     ;
-    // ft_print(head_stack_a);
+    ft_print(head_stack_a);
     ft_free_stack(head_stack_a);
     return (0);
 }
