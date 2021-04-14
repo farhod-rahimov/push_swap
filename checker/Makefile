@@ -16,7 +16,8 @@ SRCS =			./main.c \
 				./operations/ft_push.c \
 				./operations/ft_rotate_reverse.c \
 				./operations/ft_rotate.c \
-				./operations/ft_swap.c 
+				./operations/ft_swap.c \
+				./trash.c
 
 OBJS =			$(SRCS:.c=.o)
 
