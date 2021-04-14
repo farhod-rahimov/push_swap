@@ -23,7 +23,7 @@ typedef struct s_instructions
 
 
 /******************FT_GET_STACK_DATA.C******************/
-void    ft_get_stack_data(t_stack *head_stack_a, char **arv);
+void    ft_get_stack_data(t_stack *head_stack_a, char **arv, int i);
 void	ft_check_if_args_are_int(char **argv);
 void	ft_check_duplicates_main(t_stack *head_stack_a);
 
