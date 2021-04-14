@@ -13,18 +13,9 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 		i = 0;
 	}
-	// printf("1 %s\n", argv[1]);
 	head_stack_a = ft_create_new_stack();
 	ft_get_stack_data(head_stack_a, argv, i);
 	ft_sort_stack_main(&head_stack_a, NULL, \
 		ft_lstsize((t_list *)head_stack_a), 0);
-	
-	// int *array;
-	// array = ft_create_array_from_list(ft_lstsize((t_list *)head_stack_a), head_stack_a);
-	// if (ft_check_if_stack_is_sorted(array, ft_lstsize((t_list *)head_stack_a)))
-	// 	printf("OK\n");
-	// else
-	// 	printf("NO\n");
-	// ft_print(head_stack_a);
 	return (0);
 }

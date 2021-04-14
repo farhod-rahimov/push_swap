@@ -29,8 +29,9 @@ static	char	*w_malloc(char const *str, char c)
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
-	if (!(w = (char *)malloc(sizeof(char) * (i + 1))))
-		return (NULL);
+	w = (char *)malloc(sizeof(char) * (i + 1));
+	if (w == NULL)
+		ft_error(ERROR);
 	i = 0;
 	while (str[i] && str[i] != c)
 	{
@@ -41,18 +42,7 @@ static	char	*w_malloc(char const *str, char c)
 	return (w);
 }
 
-static	char	**free_all(char **array, int i)
-{
-	while (i > 0)
-	{
-		i--;
-		free(array[i]);
-	}
-	free(array);
-	return (NULL);
-}
-
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		a;
@@ -62,7 +52,8 @@ char			**ft_split(char const *s, char c)
 	a = 0;
 	if (s == NULL)
 		return (NULL);
-	if (!(array = (char **)malloc(sizeof(char *) * (c_word(s, c) + 1))))
+	array = (char **)malloc(sizeof(char *) * (c_word(s, c) + 1));
+	if (array == NULL)
 		return (NULL);
 	while (s[a])
 	{
@@ -70,8 +61,7 @@ char			**ft_split(char const *s, char c)
 			a++;
 		if (s[a] && s[a] != c)
 		{
-			if ((array[i++] = w_malloc(&s[a], c)) == NULL)
-				return (free_all(array, i));
+			array[i++] = w_malloc(&s[a], c);
 			while (s[a] && s[a] != c)
 				a++;
 		}
