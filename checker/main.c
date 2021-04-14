@@ -19,8 +19,6 @@ int main(int argc, char **argv)
     ft_get_stack_data(head_stack_a, argv, i);
     ft_get_instructions(head_instructions);
     ft_exec_instructions(head_instructions, &head_stack_a);
-    // while (1)
-    //     ;
     ft_check_if_stack_is_sorted(head_stack_a);
     // ft_free_stack(head_stack_a);
     return (0);
