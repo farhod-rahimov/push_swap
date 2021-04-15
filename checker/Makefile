@@ -1,7 +1,8 @@
 SRCS =			./main.c \
 				./ft_get_stack_data.c \
 				./utils/ft_strcmp.c \
-				./utils/utils.c \
+				./utils/utils_part_1.c \
+				./utils/utils_part_2.c \
 				./utils/ft_atoi.c \
 				./utils/ft_bzero.c \
 				./utils/ft_isdigit.c \

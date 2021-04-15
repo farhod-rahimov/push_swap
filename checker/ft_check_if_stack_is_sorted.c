@@ -1,21 +1,11 @@
 #include "checker.h"
 
-void	ft_print_array(int *array, int list_size) //delete
-{
-	int	i;
-
-	i = 0;
-	while (i < list_size)
-		printf("%d ", array[i++]);
-	printf("\n");
-}
-
 static	int	*ft_create_array(t_stack *head)
 {
 	int	*array;
-	int list_size;
+	int	list_size;
 	int	i;
-	
+
 	list_size = ft_lstsize((t_list *)head);
 	array = (int *)malloc(sizeof(int) * list_size);
 	if (!array)
@@ -31,7 +21,7 @@ static	int	*ft_create_array(t_stack *head)
 
 void	ft_check_if_stack_is_sorted(t_stack *head)
 {
-	int *array;
+	int	*array;
 	int	list_size;
 	int	k;
 	int	i;
@@ -53,5 +43,4 @@ void	ft_check_if_stack_is_sorted(t_stack *head)
 		k++;
 	}
 	ft_end_programm("OK\n");
-	// ft_print_array(array, ft_lstsize((t_list *)head));
 }

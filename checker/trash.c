@@ -20,3 +20,13 @@ void    ft_print(t_stack *head)
 		head = head->next;
 	}
 }
+
+void	ft_print_array(int *array, int list_size) //delete
+{
+	int	i;
+
+	i = 0;
+	while (i < list_size)
+		printf("%d ", array[i++]);
+	printf("\n");
+}

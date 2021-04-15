@@ -10,7 +10,8 @@ char	*ft_strdup(const char *s1)
 	a = 0;
 	while (s1[i] != '\0')
 		i++;
-	if ((p = (char *)malloc((i + 1) * sizeof(char))))
+	p = (char *)malloc((i + 1) * sizeof(char));
+	if (p)
 	{
 		while (a < i)
 		{
