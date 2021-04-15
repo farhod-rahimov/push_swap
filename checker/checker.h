@@ -5,8 +5,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "libft.h"
-
-# include <stdio.h> //delete
+# include <stdio.h>
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
