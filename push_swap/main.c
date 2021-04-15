@@ -12,6 +12,8 @@ int	main(int argc, char **argv)
 	{
 		argv = ft_split(argv[1], ' ');
 		i = 0;
+		if (argv[0] == NULL)
+			exit(0);
 	}
 	head_stack_a = ft_create_new_stack();
 	ft_get_stack_data(head_stack_a, argv, i);

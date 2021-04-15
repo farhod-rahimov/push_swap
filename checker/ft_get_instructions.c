@@ -1,8 +1,8 @@
 #include "checker.h"
 
-static	t_instr *ft_push_back(t_instr *prev);
+static	t_instr	*ft_push_back(t_instr *prev);
 
-void    ft_get_instructions(t_instr *instructions_head)
+void	ft_get_instructions(t_instr *instructions_head)
 {
 	t_instr	*current;
 	char	c;
@@ -27,7 +27,6 @@ void    ft_get_instructions(t_instr *instructions_head)
 			current->str[i++] = c;
 	}
 	ft_check_if_instr_are_correct(instructions_head);
-	// ft_printos(instructions_head);
 }
 
 void	ft_check_if_instr_are_correct(t_instr *instructions_head)
@@ -47,7 +46,8 @@ void	ft_check_if_instr_are_correct(t_instr *instructions_head)
 				break ;
 			i++;
 		}
-		if ((i == 11 && ft_strcmp(tmp->str, "")) || (!ft_strcmp(tmp->str, "") && tmp->next))
+		if ((i == 11 && ft_strcmp(tmp->str, "")) || \
+		(!ft_strcmp(tmp->str, "") && tmp->next))
 			ft_error(ERROR);
 		i = 0;
 		tmp = tmp->next;
@@ -77,25 +77,25 @@ char	**ft_get_possible_instr(void)
 	return (p_instr);
 }
 
-t_instr *ft_push_back(t_instr *prev)
+t_instr	*ft_push_back(t_instr *prev)
 {
-	t_instr *new_element;
+	t_instr	*new_element;
 
-    new_element = (t_instr *)malloc(sizeof(t_instr));
-    if (new_element == NULL)
-        ft_error(ERROR);
-    prev->next = new_element;
-    new_element->next = NULL;
+	new_element = (t_instr *)malloc(sizeof(t_instr));
+	if (new_element == NULL)
+		ft_error(ERROR);
+	prev->next = new_element;
+	new_element->next = NULL;
 	ft_bzero(new_element->str, sizeof(char) * 5);
-    return (new_element);
+	return (new_element);
 }
 
-void    ft_printos(t_instr *head)
+void	ft_printos(t_instr *head)
 {
-    while (head)
-    {
+	while (head)
+	{
 		if (ft_strcmp(head->str, ""))
-        	printf("%s", head->str);
-        head = head->next;
-    }
+			printf("%s", head->str);
+		head = head->next;
+	}
 }
