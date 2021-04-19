@@ -4,7 +4,7 @@ void	ft_get_stack_data(t_stack *head_stack_a, char **argv, int i)
 {
 	t_stack	*current;
 
-	ft_check_if_args_are_int(argv);
+	ft_check_if_args_are_int(argv, i);
 	current = head_stack_a;
 	current->value = ft_atoi(argv[i++]);
 	while (argv[i])
@@ -12,12 +12,10 @@ void	ft_get_stack_data(t_stack *head_stack_a, char **argv, int i)
 	ft_check_duplicates_main(head_stack_a);
 }
 
-void	ft_check_if_args_are_int(char **argv)
+void	ft_check_if_args_are_int(char **argv, int i)
 {
-	size_t	i;
 	size_t	k;
 
-	i = 1;
 	k = 0;
 	while (argv[i])
 	{

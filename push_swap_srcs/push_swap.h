@@ -72,7 +72,7 @@ int		*ft_create_array_from_list(int list_size, t_stack *head);
 
 /*#*#*#*#*#*#*#*#*#FT_GET_STACK_DATA.C#*#*#*#*#*#*#*#*#*/
 void	ft_get_stack_data(t_stack *head_stack_a, char **argv, int i);
-void	ft_check_if_args_are_int(char **argv);
+void	ft_check_if_args_are_int(char **argv, int i);
 void	ft_check_duplicates_main(t_stack *head_stack_a);
 void	ft_check_duplicates(int *array, size_t size, int value_check);
 
