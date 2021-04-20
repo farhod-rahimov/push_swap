@@ -45,14 +45,14 @@ void	ft_sb(t_stack **head_stack_b);
 void	ft_ss(t_stack **head_stack_a, t_stack **head_stack_b);
 
 /*#*#*#*#*#*#*#*#*#SORT_ELEMENTS#*#*#*#*#*#*#*#*#*/
-void	case_1(t_stack **head, int sorted_a);
-void	case_2(t_stack **head, int sorted_a);
-void	case_3(t_stack **head, int sorted_a);
-void	case_4(t_stack **head, int sorted_a);
-void	case_5(t_stack **head, int sorted_a);
-void	case_6(t_stack **head, int sorted_a);
+void	case_1(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
+void	case_2(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
+void	case_3(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
+void	case_4(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
+void	case_5(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
+void	case_6(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
 int		ft_sort_if_2_elements(t_stack **head, int sorted_a);
-int		ft_sort_if_3_elements(t_stack **head, int sorted_a);
+int		ft_sort_if_3_elements(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a);
 
 /*#*#*#*#*#*#*#*#*#UTILS/UTILS.C#*#*#*#*#*#*#*#*#*/
 void	ft_error(char *str);

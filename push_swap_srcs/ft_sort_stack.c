@@ -107,7 +107,7 @@ int	ft_sort_stack_a(t_stack **head_stack_a, \
 										s.sorted_a);
 	else if (s.list_size == 3)
 		s.sorted_a = ft_sort_if_3_elements(s.head_stack_a, \
-										s.sorted_a);
+								s.head_stack_b, s.sorted_a);
 	// printf("C "); ft_print(*head_stack_a);
 	while (--k >= 0)
 	{
