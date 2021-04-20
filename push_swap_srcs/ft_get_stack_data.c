@@ -51,7 +51,7 @@ void	ft_check_duplicates_main(t_stack *head_stack_a)
 		i++;
 		tmp = tmp->next;
 	}
-	free(array);
+	//free//(array);
 }
 
 void	ft_check_duplicates(int *array, size_t size, int value_check)

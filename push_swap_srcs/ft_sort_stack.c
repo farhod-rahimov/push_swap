@@ -1,15 +1,19 @@
 #include "push_swap.h"
 
 void	ft_sort_stack_main(t_stack **head_stack_a, \
-		t_stack *head_stack_b, int list_size, int sorted_a)
+		t_stack *head_stack_b, int list_size, int debug_flag)
 {
+	t_sort s;
 	int	*array;
 
+	s.head_stack_a = head_stack_a;
+	s.head_stack_b = &head_stack_b;
+	s.debug_flag = debug_flag;
 	array = ft_create_array_from_list(list_size, (*head_stack_a));
 	if (!ft_check_if_stack_is_sorted(array, list_size))
-		ft_sort_stack_a(head_stack_a, &head_stack_b, list_size, sorted_a);
+		ft_sort_stack_a(&s, 0, list_size);
 	// printf("SB\n"); ft_print(head_stack_b);
-	free(array);
+	//free//(array);
 }
 
 int	ft_sort_stack_a_part1(t_sort *s, int k, int i, int b)
@@ -26,15 +30,15 @@ int	ft_sort_stack_a_part1(t_sort *s, int k, int i, int b)
 		while (i++ < s->list_size)
 		{
 			if ((*s->head_stack_a)->value > median)
-				ft_pb(s->head_stack_a, s->head_stack_b);
+				ft_pb(s->head_stack_a, s->head_stack_b, s->debug_flag);
 			else
 			{
-				ft_ra(s->head_stack_a);
+				ft_ra(s->head_stack_a, s->head_stack_b, s->debug_flag);
 				b++;
 			}
 		}
 		while (b-- > 0 && s->sorted_a > 0)
-			ft_rra(s->head_stack_a);
+			ft_rra(s->head_stack_a, s->head_stack_b, s->debug_flag);
 		s->segm_size[k++] = ft_lstsize((t_list *)(*s->head_stack_b)) - tmp;
 		s->list_size = ft_lstsize((t_list *)(*s->head_stack_a)) - s->sorted_a;
 	}
@@ -45,76 +49,70 @@ void	ft_sort_stack_a_part2(t_sort *s, int k, int i)
 {
 	int	*array;
 	int b;
-	int tmp_b;
-	int median;
+	// int tmp_b;
+	// int median;
 
 	if ((*s->head_stack_b) && ft_lstsize((t_list *)(*s->head_stack_b)) < 3)
-		ft_sort_stack_a(s->head_stack_b, NULL, \
-					ft_lstsize((t_list *)(*s->head_stack_b)), 0);
-	median = ft_get_median(*s->head_stack_b, s->segm_size[k]);
+		ft_sort_stack_a(s, 0, ft_lstsize((t_list *)(*s->head_stack_b)));
+	// median = ft_get_median(*s->head_stack_b, s->segm_size[k]);
 	b = 0;
 	while (i < s->segm_size[k])
 	{
-		if ((*s->head_stack_b)->value <= median)
-			ft_pa(s->head_stack_a, s->head_stack_b);
-		else
-		{
-			ft_rb(s->head_stack_b);
-			b++;
-		}
+		// if ((*s->head_stack_b)->value <= median)
+			ft_pa(s->head_stack_a, s->head_stack_b, s->debug_flag);
+		// else
+		// {
+			// ft_rb(s->head_stack_a, s->head_stack_b, s->debug_flag);
+			// b++;
+		// }
 		i++;
 	}
-	tmp_b = b;
-	while (tmp_b-- > 0)
-		ft_rrb(s->head_stack_b);
+	// tmp_b = b;
+	// while (tmp_b-- > 0)
+		// ft_rrb(s->head_stack_a, s->head_stack_b, s->debug_flag);
 	array = ft_create_array_from_list(s->segm_size[k] - b, (*s->head_stack_a));
 	if (!ft_check_if_stack_is_sorted(array, s->segm_size[k] - b))
-		s->sorted_a = ft_sort_stack_a(s->head_stack_a, \
-		s->head_stack_b, s->segm_size[k] - b, s->sorted_a);
+		s->sorted_a = ft_sort_stack_a(s, s->sorted_a, s->segm_size[k] - b);
 	else
 	{
 		i = 0;
 		while (i < s->segm_size[k] - b)
 		{
-			ft_ra(s->head_stack_a);
+			ft_ra(s->head_stack_a, s->head_stack_b, s->debug_flag);
 			i++;
 		}
 		s->sorted_a += i;
 	}
 	free(array);
-	s->segm_size[k] = b;
-	if (b)
-		ft_sort_stack_a_part2(s, k, 0);
+	// s->segm_size[k] = b;
+	// if (b)
+		// ft_sort_stack_a_part2(s, k, 0);
 }
 
-int	ft_sort_stack_a(t_stack **head_stack_a, \
-		t_stack **head_stack_b, int list_size, int sorted_a)
+int	ft_sort_stack_a(t_sort *s, int sorted_a, int list_size)
 {
-	t_sort	s;
 	int		k;
 
-	s.head_stack_a = head_stack_a;
-	s.head_stack_b = head_stack_b;
-	s.list_size = list_size;
-	s.sorted_a = sorted_a;
-	s.segm_size = ft_create_blank_array(s.list_size / 2);
-	ft_bzero(s.segm_size, (s.list_size / 2) * sizeof(int));
+	s->sorted_a = sorted_a;
+	s->list_size = list_size;
+	s->segm_size = ft_create_blank_array(s->list_size / 2);
+	ft_bzero(s->segm_size, (s->list_size / 2) * sizeof(int));
 	// printf("A "); ft_print(*head_stack_a);
-	k = ft_sort_stack_a_part1(&s, 0, 0, 0);
+	k = ft_sort_stack_a_part1(s, 0, 0, 0);
 	// printf("B "); ft_print(*head_stack_a);
-	if (s.list_size == 2)
-		s.sorted_a = ft_sort_if_2_elements(s.head_stack_a, \
-										s.sorted_a);
-	else if (s.list_size == 3)
-		s.sorted_a = ft_sort_if_3_elements(s.head_stack_a, \
-								s.head_stack_b, s.sorted_a);
+	if (s->list_size == 2)
+		s->sorted_a = ft_sort_if_2_elements(s->head_stack_a, \
+						s->head_stack_b, s->sorted_a, s->debug_flag);
+	else if (s->list_size == 3)
+		s->sorted_a = ft_sort_if_3_elements(s->head_stack_a, \
+						s->head_stack_b, s->sorted_a, s->debug_flag);
 	// printf("C "); ft_print(*head_stack_a);
 	while (--k >= 0)
 	{
 		// printf("D "); ft_print(*head_stack_a);
-		ft_sort_stack_a_part2(&s, k, 0);
+		ft_sort_stack_a_part2(s, k, 0);
 		// printf("E "); ft_print(*head_stack_a);
 	}
-	free(s.segm_size);
-	return (s.sorted_a);
+	//free//(s->segm_size);
+	return (s->sorted_a);
 }

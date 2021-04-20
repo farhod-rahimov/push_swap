@@ -40,7 +40,7 @@ void	ft_free_stack(t_stack *head)
 	{
 		tmp = head;
 		head = head->next;
-		free(tmp);
+		//free//(tmp);
 	}
 }
 

@@ -14,7 +14,7 @@ int	ft_get_median(t_stack *head, int list_size)
 		median = (array[(list_size / 2)] + array[list_size / 2 - 1]) / 2;
 	else
 		median = array[list_size / 2];
-	free(array);
+	//free//(array);
 	return (median);
 }
 
