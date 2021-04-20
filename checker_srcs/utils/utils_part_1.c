@@ -30,6 +30,6 @@ void	ft_free_instr(t_instr *head)
 	{
 		tmp = head;
 		head = head->next;
-		//free//(tmp);
+		free(tmp);
 	}
 }
