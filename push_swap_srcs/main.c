@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	ft_sort_stack_main(&head_stack_a, NULL, \
 		ft_lstsize((t_list *)head_stack_a), 0);
 	
-	// printf("SA\n"); ft_print(head_stack_a);
+	// printf("SA "); ft_print(head_stack_a);
 	// int *array;
 	// array = ft_create_array_from_list(ft_lstsize((t_list *)head_stack_a), head_stack_a);
 	// if (ft_check_if_stack_is_sorted(array, ft_lstsize((t_list *)head_stack_a)))

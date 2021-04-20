@@ -21,7 +21,7 @@ static	void	part_2(t_instr *tmp_instr, \
 		ft_rrr(head_stack_a, head_stack_b);
 }
 
-void	ft_exec_instructions(t_instr *head_instr, t_stack **head_stack_a)
+void	ft_exec_instructions(t_instr *head_instr, t_stack **head_stack_a, int debug_flag)
 {
 	t_instr	*tmp_instr;
 	t_stack	*head_stack_b;
@@ -38,9 +38,48 @@ void	ft_exec_instructions(t_instr *head_instr, t_stack **head_stack_a)
 			ft_ss(head_stack_a, &head_stack_b);
 		else
 			part_2(tmp_instr, head_stack_a, &head_stack_b);
+		if (debug_flag)
+			ft_print_stacks(*head_stack_a, head_stack_b, tmp_instr);
 		tmp_instr = tmp_instr->next;
 	}
 	ft_free_instr(head_instr);
 	if (head_stack_b)
 		ft_end_programm("KO\n");
+}
+
+void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr)
+{
+	int a_flag;
+	int	b_flag;
+
+	a_flag = 0;
+	b_flag = 0;
+	if (a)
+		a_flag = 1;
+	if (b)
+		b_flag = 1;
+	printf("-----------------------\n");
+	printf("STACK_A		STACK_B\n");
+	printf("-----------------------\n");
+	printf("instruction - %s\n", current_instr->str);
+	while (a_flag || b_flag)
+	{
+		if (a_flag)
+			printf("%d		", a->value);
+		else
+			printf("		");
+		if (b_flag)
+			printf("%d\n", b->value);
+		else
+			printf("\n");
+		if (a_flag)
+			a = a->next;
+		if (b_flag)
+			b = b->next;
+		if (a == NULL)
+			a_flag = 0;
+		if (b == NULL)
+			b_flag = 0;
+	}
+	printf("-----------------------\n\n");
 }

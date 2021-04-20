@@ -37,7 +37,10 @@ void	ft_check_if_stack_is_sorted(t_stack *head)
 		while (i)
 		{
 			if (array[i] < array[i - 1])
+			{
+				ft_print(head);
 				ft_end_programm("KO\n");
+			}
 			i--;
 		}
 		k++;
