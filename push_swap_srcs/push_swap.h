@@ -16,10 +16,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_instructions
+{
+	char					str[5];
+	struct s_instructions	*next;
+}	t_instr;
+
 typedef struct s_sort
 {
 	t_stack	**head_stack_a;
 	t_stack	**head_stack_b;
+	t_instr	**head_instr;
 	int		list_size;
 	int		sorted_a;
 	int		*segm_size;
@@ -87,7 +94,8 @@ void	ft_check_duplicates(int *array, size_t size, int value_check);
 /*#*#*#*#*#*#*#*#*#FT_SORT_STACK.C#*#*#*#*#*#*#*#*#*/
 void	ft_sort_stack_main(t_stack **head_stack_a, \
 		t_stack *head_stack_b, int list_size, int flag);
-int		ft_sort_stack_a(t_stack **head_stack_a, \
-		t_stack **head_stack_b, int list_size, int sorted_a);
+// int		ft_sort_stack_a(t_stack **head_stack_a, \
+// 		t_stack **head_stack_b, int list_size, int sorted_a);
+int		ft_sort_stack_a(t_sort *s, t_stack **head_stack_b, int list_size, int sorted_a);
 
 #endif
