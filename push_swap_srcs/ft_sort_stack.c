@@ -11,11 +11,51 @@ void	ft_sort_stack_main(t_stack **head_stack_a, \
 	s.head_stack_a = head_stack_a;
 	s.head_instr = &head_instr;
 	array = ft_create_array_from_list(list_size, (*head_stack_a));
-	if (!ft_check_if_stack_is_sorted(array, list_size))
+	if (list_size == 2 && !ft_check_if_stack_is_sorted(array, list_size))
+		ft_sort_if_3_elements_a(head_stack_a, &head_stack_b, 0, &head_instr);
+	else if (list_size == 3 && !ft_check_if_stack_is_sorted(array, list_size))
+		ft_sort_if_3_elements_a(head_stack_a, &head_stack_b, 0, &head_instr);
+	else if (list_size <= 5 && !ft_check_if_stack_is_sorted(array, list_size))
+		ft_sort_5_elements(head_stack_a, &head_stack_b, &head_instr, list_size);
+	else if (!ft_check_if_stack_is_sorted(array, list_size))
 		ft_sort_stack_a(&s, &head_stack_b, list_size, sorted_a);
 	ft_print_instr(head_instr);
 	// printf("SB\n"); ft_print(head_stack_b);
 	free(array);
+}
+
+void	ft_sort_5_elements(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int list_size)
+{
+	int median;
+	int i;
+
+	median = ft_get_median(*head_stack_a, list_size);
+	i = 0;
+	while (i < list_size)
+	{
+		if ((*head_stack_a)->value > median)
+			ft_pb(head_stack_a, head_stack_b, head_instr, 1);
+		else
+			ft_ra(head_stack_a, head_instr, 1);
+		i++;
+	}
+	if (ft_lstsize((t_list *)(*head_stack_a)) == 3)
+		ft_sort_if_3_elements_a(head_stack_a, head_stack_b, 0, head_instr);
+	else if (ft_lstsize((t_list *)(*head_stack_a)) == 2)
+		ft_sort_if_2_elements_a(head_stack_a, 0, head_instr);
+	
+	if (ft_lstsize((t_list *)(*head_stack_b)) == 3)
+		ft_sort_if_3_elements_b(head_stack_a, head_stack_b, 0, head_instr);
+	else if (ft_lstsize((t_list *)(*head_stack_b)) == 2)
+		ft_sort_if_2_elements_b(head_stack_b, 0, head_instr);
+	ft_print(*head_stack_a);
+	ft_print(*head_stack_b);
+	
+	while (*head_stack_b)
+	{
+		ft_pa(head_stack_a, head_stack_b, head_instr, 1);
+		ft_ra(head_stack_a, head_instr, 1);
+	}
 }
 
 int	ft_sort_stack_a_part1(t_sort *s, int k, int i, int b)
