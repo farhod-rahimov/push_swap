@@ -3,6 +3,7 @@ SRCS =			./main.c \
 				./utils/ft_atoi.c \
 				./utils/utils.c \
 				./utils/ft_strlen.c \
+				./utils/ft_strcmp.c \
 				./utils/ft_lstsize.c \
 				./utils/ft_isdigit.c \
 				./utils/ft_lstlast.c \
