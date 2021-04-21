@@ -32,15 +32,15 @@ int	ft_sort_stack_a_part1(t_sort *s, int k, int i, int b)
 		while (i++ < s->list_size)
 		{
 			if ((*s->head_stack_a)->value > median)
-				ft_pb(s->head_stack_a, s->head_stack_b, s->head_instr);
+				ft_pb(s->head_stack_a, s->head_stack_b, s->head_instr, 1);
 			else
 			{
-				ft_ra(s->head_stack_a, s->head_instr);
+				ft_ra(s->head_stack_a, s->head_instr, 1);
 				b++;
 			}
 		}
 		while (b-- > 0 && s->sorted_a > 0)
-			ft_rra(s->head_stack_a, s->head_instr);
+			ft_rra(s->head_stack_a, s->head_instr, 1);
 		s->segm_size[k++] = ft_lstsize((t_list *)(*s->head_stack_b)) - tmp;
 		s->list_size = ft_lstsize((t_list *)(*s->head_stack_a)) - s->sorted_a;
 	}
@@ -67,17 +67,17 @@ void	ft_sort_stack_a_part2(t_sort *s, int k, int i)
 	while (i < s->segm_size[k])
 	{
 		if ((*s->head_stack_b)->value <= median)
-			ft_pa(s->head_stack_a, s->head_stack_b, s->head_instr);
+			ft_pa(s->head_stack_a, s->head_stack_b, s->head_instr, 1);
 		else
 		{
-			ft_rb(s->head_stack_b, s->head_instr);
+			ft_rb(s->head_stack_b, s->head_instr, 1);
 			b++;
 		}
 		i++;
 	}
 	tmp_b = b;
 	while (tmp_b-- > 0)
-		ft_rrb(s->head_stack_b, s->head_instr);
+		ft_rrb(s->head_stack_b, s->head_instr, 1);
 	array = ft_create_array_from_list(s->segm_size[k] - b, (*s->head_stack_a));
 	if (!ft_check_if_stack_is_sorted(array, s->segm_size[k] - b))
 		s->sorted_a = ft_sort_stack_a(s, s->head_stack_b, s->segm_size[k] - b, s->sorted_a);
@@ -86,7 +86,7 @@ void	ft_sort_stack_a_part2(t_sort *s, int k, int i)
 		i = 0;
 		while (i < s->segm_size[k] - b)
 		{
-			ft_ra(s->head_stack_a, s->head_instr);
+			ft_ra(s->head_stack_a, s->head_instr, 1);
 			i++;
 		}
 		s->sorted_a += i;

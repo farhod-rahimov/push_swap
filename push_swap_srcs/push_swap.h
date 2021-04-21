@@ -34,23 +34,23 @@ typedef struct s_sort
 }	t_sort;
 
 /*#*#*#*#*#*#*#*#*#OPERATIONS/FT_PUSH.C#*#*#*#*#*#*#*#*#*/
-void	ft_pa(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr);
-void	ft_pb(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr);
+void	ft_pa(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
+void	ft_pb(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 
 /*#*#*#*#*#*#*#*#*#OPERATIONS/FT_ROTATE_REVERSE.C#*#*#*#*#*#*#*#*#*/
-void	ft_rra(t_stack **head_stack_a, t_instr **head_instr);
-void	ft_rrb(t_stack **head_stack_b, t_instr **head_instr);
-void	ft_rrr(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr);
+void	ft_rra(t_stack **head_stack_a, t_instr **head_instr, int write_flag);
+void	ft_rrb(t_stack **head_stack_b, t_instr **head_instr, int write_flag);
+void	ft_rrr(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 
 /*#*#*#*#*#*#*#*#*#OPERATIONS/FT_ROTATE.C#*#*#*#*#*#*#*#*#*/
-void	ft_ra(t_stack **head_stack_a, t_instr **head_instr);
-void	ft_rb(t_stack **head_stack_b, t_instr **head_instr);
-void	ft_rr(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr);
+void	ft_ra(t_stack **head_stack_a, t_instr **head_instr, int write_flag);
+void	ft_rb(t_stack **head_stack_b, t_instr **head_instr, int write_flag);
+void	ft_rr(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 
 /*#*#*#*#*#*#*#*#*#OPERATIONS/FT_SWAP.C#*#*#*#*#*#*#*#*#*/
-void	ft_sa(t_stack **head_stack_a, t_instr **head_instr);
-void	ft_sb(t_stack **head_stack_b, t_instr **head_instr);
-void	ft_ss(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr);
+void	ft_sa(t_stack **head_stack_a, t_instr **head_instr, int write_flag);
+void	ft_sb(t_stack **head_stack_b, t_instr **head_instr, int write_flag);
+void	ft_ss(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 
 /*#*#*#*#*#*#*#*#*#SORT_ELEMENTS#*#*#*#*#*#*#*#*#*/
 void	case_1_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
