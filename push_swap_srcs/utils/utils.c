@@ -68,11 +68,18 @@ void ft_push_back_new_instr(t_instr **head_instr, char *str)
 	t_instr *tmp;
 	t_instr *new;
 
+	if (*head_instr == NULL)
+	{
+		ft_create_new_instr(head_instr, str);
+		(*head_instr)->prev = NULL;
+		return ;
+	}
 	tmp = *head_instr;
 	while (tmp->next)
 		tmp = tmp->next;
 	ft_create_new_instr(&new, str);
 	tmp->next = new;
+	new->prev = tmp;
 }
 
 void	ft_print_instr(t_instr *head)

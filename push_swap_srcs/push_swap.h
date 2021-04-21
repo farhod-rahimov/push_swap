@@ -20,6 +20,7 @@ typedef struct s_instructions
 {
 	char					*str;
 	struct s_instructions	*next;
+	struct s_instructions	*prev;
 }	t_instr;
 
 typedef struct s_sort
