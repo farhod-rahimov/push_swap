@@ -36,19 +36,19 @@ FLAGS =			-Wall -Wextra -Werror
 NAME =			push_swap
 
 %.o:			%.c
-				$(GCC) -c $(FLAGS) $< -o $(<:.c=.o)
+				@ $(GCC) -c $(FLAGS) $< -o $(<:.c=.o)
 
 all: 			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(GCC) -o $(NAME) $(OBJS)
-				echo 'push_swap built, run ./push_swap'
+				@ $(GCC) -o $(NAME) $(OBJS)
+				@ echo 'push_swap built, run ./push_swap'
 
 clean:
-				rm -f $(OBJS)
+				@ rm -f $(OBJS)
 
 fclean:			clean
-				rm -f $(NAME)
+				@ rm -f $(NAME)
 
 re:				fclean all
 
