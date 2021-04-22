@@ -99,7 +99,35 @@ s9
 ./push_swap $s9 | wc -l
 
 
-
+./push_swap $s24 | ./checker $s24
+./push_swap $s25 | ./checker $s25
+./push_swap $s26 | ./checker $s26
+./push_swap $s27 | ./checker $s27
+./push_swap $s28 | ./checker $s28
+./push_swap $s29 | ./checker $s29
+./push_swap $s18 | ./checker $s18
+./push_swap $s19 | ./checker $s19
+./push_swap $s20 | ./checker $s20
+./push_swap $s21 | ./checker $s21
+./push_swap $s22 | ./checker $s22
+./push_swap $s23 | ./checker $s23
+./push_swap $s12 | ./checker $s12
+./push_swap $s13 | ./checker $s13
+./push_swap $s14 | ./checker $s14
+./push_swap $s15 | ./checker $s15
+./push_swap $s16 | ./checker $s16
+./push_swap $s17 | ./checker $s17
+./push_swap $s10 | ./checker $s10
+./push_swap $s11 | ./checker $s11
+./push_swap $s1 | ./checker $s1
+./push_swap $s2 | ./checker $s2
+./push_swap $s3 | ./checker $s3
+./push_swap $s4 | ./checker $s4
+./push_swap $s5 | ./checker $s5
+./push_swap $s6 | ./checker $s6
+./push_swap $s7 | ./checker $s7
+./push_swap $s8 | ./checker $s8
+./push_swap $s9 | ./checker $s9
 
 
 
