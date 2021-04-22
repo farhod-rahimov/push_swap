@@ -4,14 +4,29 @@ int	main(int argc, char **argv)
 {
 	t_stack	*head_stack_a;
 	int		i;
+	int		debug_flag;
 
 	i = 1;
+	debug_flag = 0;
 	if (argc == 1)
 		exit(0);
+	if (!ft_strcmp(argv[1], "-v"))
+	{
+		debug_flag = ++i;
+		if (argc == 2)
+			exit(0);
+		else if (argc == 3)
+		{
+			i = 0;
+			argv = ft_split(argv[2], ' ');
+			if (argv[0] == NULL)
+				exit(0);
+		}
+	}
 	else if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
 		i = 0;
+		argv = ft_split(argv[1], ' ');
 		if (argv[0] == NULL)
 			exit(0);
 	}
