@@ -52,9 +52,19 @@ void	ft_sa(t_stack **head_stack_a, t_instr **head_instr, int write_flag);
 void	ft_sb(t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 void	ft_ss(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag);
 
+/*#*#*#*#*#*#*#*#*#SORT_5_ELEMENTS#*#*#*#*#*#*#*#*#*/
+void	ft_sort_5_elements(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int list_size);
+void    ft_sort_2_elements_b(t_stack **head_stack_b, t_instr **head_instr);
+void    ft_sort_3_elements_b(t_stack **head_stack_b, t_instr **head_instr);
+void	case_1(t_stack **head_stack_b, t_instr **head_instr);
+void	case_2(t_stack **head_stack_b, t_instr **head_instr);
+void	case_3(t_stack **head_stack_b, t_instr **head_instr);
+void	case_5(t_stack **head_stack_b, t_instr **head_instr);
+void	case_6(t_stack **head_stack_b, t_instr **head_instr);
+
 /*#*#*#*#*#*#*#*#*#SORT_ELEMENTS#*#*#*#*#*#*#*#*#*/
-void	case_1_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
 void	case_2_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
+void	case_1_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
 void	case_3_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
 void	case_4_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);
 void	case_5_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr);

@@ -11,6 +11,8 @@ SRCS =			./main.c \
 				./utils/ft_split.c \
 				./ft_get_median.c \
 				./ft_sort_stack.c \
+				./sort_5_elements/cases.c \
+				./sort_5_elements/ft_sort_5_elements.c \
 				./sort_elements/cases_part_1_a.c \
 				./sort_elements/cases_part_2_a.c \
 				./sort_elements/ft_sort_if_2_elements_a.c \
