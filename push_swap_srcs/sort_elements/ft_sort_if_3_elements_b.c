@@ -1,6 +1,7 @@
 #include "../push_swap.h"
 
-int	ft_sort_if_3_elements_b(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr)
+int	ft_sort_if_3_elements_b(t_stack **head_stack_a, t_stack **head_stack_b, \
+									int sorted_a, t_instr **head_instr)
 {
 	int	value_0;
 	int	value_1;

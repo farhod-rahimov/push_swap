@@ -1,6 +1,7 @@
 #include "../push_swap.h"
 
-void	case_4_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr)
+void	case_4_a(t_stack **head_stack_a, t_stack **head_stack_b, \
+						int sorted_a, t_instr **head_instr)
 {
 	(void)head_stack_b;
 	if (sorted_a == 0)
@@ -19,7 +20,8 @@ void	case_4_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_in
 	}
 }
 
-void	case_5_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr)
+void	case_5_a(t_stack **head_stack_a, t_stack **head_stack_b, \
+						int sorted_a, t_instr **head_instr)
 {
 	(void)head_stack_b;
 	if (sorted_a == 0)
@@ -36,7 +38,8 @@ void	case_5_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_in
 	}
 }
 
-void	case_6_a(t_stack **head_stack_a, t_stack **head_stack_b, int sorted_a, t_instr **head_instr)
+void	case_6_a(t_stack **head_stack_a, t_stack **head_stack_b, \
+						int sorted_a, t_instr **head_instr)
 {
 	(void)head_stack_b;
 	if (sorted_a == 0)
