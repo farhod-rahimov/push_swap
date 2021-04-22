@@ -48,7 +48,8 @@ void	ft_rb(t_stack **head_stack_b, t_instr **head_instr, int write_flag)
 	tmp->next = NULL;
 }
 
-void	ft_rr(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag)
+void	ft_rr(t_stack **head_stack_a, t_stack **head_stack_b, \
+					t_instr **head_instr, int write_flag)
 {
 	if (write_flag)
 		ft_push_back_new_instr(head_instr, "rr\n");

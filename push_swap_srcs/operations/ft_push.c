@@ -1,6 +1,7 @@
 #include "../push_swap.h"
 
-void	ft_pa(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag)
+void	ft_pa(t_stack **head_stack_a, t_stack **head_stack_b, \
+				t_instr **head_instr, int write_flag)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
@@ -16,7 +17,8 @@ void	ft_pa(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr,
 	(*head_stack_a) = tmp1;
 }
 
-void	ft_pb(t_stack **head_stack_a, t_stack **head_stack_b, t_instr **head_instr, int write_flag)
+void	ft_pb(t_stack **head_stack_a, t_stack **head_stack_b, \
+				t_instr **head_instr, int write_flag)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
