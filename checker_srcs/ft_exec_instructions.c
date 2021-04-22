@@ -48,15 +48,40 @@ void	ft_exec_instructions(t_instr *head_instr, t_stack **head_stack_a, \
 		ft_end_programm("KO\n");
 }
 
+static	int	helper(int number, int len, int flag)
+{
+	if (flag)
+	{
+		len = 14 - len;
+		while (len-- > 0)
+			printf(" ");
+		return (len);
+	}
+	if (number < 0)
+		len++;
+	while (number != 0)
+	{
+		number = number / 10;
+		len++;
+	}
+	return (len);
+}
+
 static	void	ft_print_stacks_part_2(t_stack *a, t_stack *b, \
 							int a_flag, int b_flag)
 {
+	int	len;
+
 	while (a_flag || b_flag)
 	{
 		if (a_flag)
-			printf("%d		", a->value);
+		{
+			printf("%d", a->value);
+			len = helper(a->value, 0, 0);
+			helper(a->value, len, 1);
+		}
 		else
-			printf("			");
+			helper(0, 0, 1);
 		if (b_flag)
 			printf("%d\n", b->value);
 		else
@@ -72,26 +97,10 @@ static	void	ft_print_stacks_part_2(t_stack *a, t_stack *b, \
 	}
 }
 
-static	char	wait_for_input(char c)
-{
-	if (c != 's')
-	{
-		printf("type 's' and press ENTER for skipping all operations\n");
-		printf("press ENTER to go to the next operation\n");
-	}
-	while (c != 's' && read(0, &c, 1))
-	{
-		if (c == '\n')
-			break ;
-	}
-	return (c);
-}
-
 void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr)
 {
 	int			a_flag;
 	int			b_flag;
-	static char	c;
 
 	a_flag = 0;
 	b_flag = 0;
@@ -99,11 +108,12 @@ void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr)
 		a_flag = 1;
 	if (b)
 		b_flag = 1;
-	printf("-----------------------\n");
-	printf("STACK_A		STACK_B\n");
-	printf("-----------------------\n");
+	system ("clear");
+	printf("-------------------------\n");
+	printf("  STACK_A   |   STACK_B  \n");
+	printf("-------------------------\n");
 	printf("instruction - %s\n", current_instr->str);
 	ft_print_stacks_part_2(a, b, a_flag, b_flag);
-	printf("-----------------------\n\n");
-	c = wait_for_input(c);
+	printf("-------------------------\n\n");
+	usleep(SLEEP);
 }

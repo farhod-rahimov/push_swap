@@ -10,6 +10,7 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 # define ERROR "Error\n"
+# define SLEEP 1200000
 
 typedef struct s_stack
 {
