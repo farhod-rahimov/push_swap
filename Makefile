@@ -4,7 +4,7 @@ all:
 				@ cp ./test/test.sh ./
 				@ echo "for testing 'push_swap' run 'make test'"
 
-test:
+test:			all
 				@ ./test.sh 1 100 40
 
 clean:

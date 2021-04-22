@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_sort_stack_main(t_stack **head_stack_a, \
+t_instr	*ft_sort_stack_main(t_stack **head_stack_a, \
 		t_stack *head_stack_b, int list_size, int sorted_a)
 {
 	t_sort	s;
@@ -12,15 +12,15 @@ void	ft_sort_stack_main(t_stack **head_stack_a, \
 	s.head_instr = &head_instr;
 	array = ft_create_array_from_list(list_size, (*head_stack_a));
 	if (list_size == 2 && !ft_check_if_stack_is_sorted(array, list_size))
-		ft_sort_if_3_elements_a(head_stack_a, &head_stack_b, 0, &head_instr);
+		ft_sort_if_2_elements_a(head_stack_a, 0, &head_instr);
 	else if (list_size == 3 && !ft_check_if_stack_is_sorted(array, list_size))
 		ft_sort_if_3_elements_a(head_stack_a, &head_stack_b, 0, &head_instr);
 	else if (list_size <= 5 && !ft_check_if_stack_is_sorted(array, list_size))
 		ft_sort_5_elements(head_stack_a, &head_stack_b, &head_instr, list_size);
 	else if (!ft_check_if_stack_is_sorted(array, list_size))
 		ft_sort_stack_a(&s, &head_stack_b, list_size, sorted_a);
-	ft_print_instr(head_instr);
 	free(array);
+	return (head_instr);
 }
 
 static	int	ft_sort_stack_a_part1(t_sort *s, int k, int i, int b)

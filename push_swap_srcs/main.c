@@ -11,6 +11,7 @@ static	int	get_argv(char ***argv, int i)
 int	main(int argc, char **argv)
 {
 	t_stack	*head_stack_a;
+	t_instr	*head;
 	int		i;
 	int		debug_flag;
 
@@ -18,19 +19,12 @@ int	main(int argc, char **argv)
 	debug_flag = 0;
 	if (argc == 1)
 		exit(0);
-	if (!ft_strcmp(argv[1], "-v"))
-	{
-		debug_flag = ++i;
-		if (argc == 2)
-			exit(0);
-		else if (argc == 3)
-			i = get_argv(&argv, 2);
-	}
-	else if (argc == 2)
+	if (argc == 2)
 		i = get_argv(&argv, 1);
 	head_stack_a = ft_create_new_stack();
 	ft_get_stack_data(head_stack_a, argv, i);
-	ft_sort_stack_main(&head_stack_a, NULL, \
+	head = ft_sort_stack_main(&head_stack_a, NULL, \
 		ft_lstsize((t_list *)head_stack_a), 0);
+	ft_print_instr(head);
 	return (0);
 }
