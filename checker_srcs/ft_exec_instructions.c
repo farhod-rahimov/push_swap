@@ -72,10 +72,26 @@ static	void	ft_print_stacks_part_2(t_stack *a, t_stack *b, \
 	}
 }
 
+static	char	wait_for_input(char c)
+{
+	if (c != 's')
+	{
+		printf("type 's' and press ENTER for skipping all operations\n");
+		printf("press ENTER to go to the next operation\n");
+	}
+	while (c != 's' && read(0, &c, 1))
+	{
+		if (c == '\n')
+			break ;
+	}
+	return (c);
+}
+
 void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr)
 {
-	int	a_flag;
-	int	b_flag;
+	int			a_flag;
+	int			b_flag;
+	static char	c;
 
 	a_flag = 0;
 	b_flag = 0;
@@ -89,4 +105,5 @@ void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr)
 	printf("instruction - %s\n", current_instr->str);
 	ft_print_stacks_part_2(a, b, a_flag, b_flag);
 	printf("-----------------------\n\n");
+	c = wait_for_input(c);
 }
