@@ -1,7 +1,8 @@
 SRCS =			./main.c \
 				./ft_get_stack_data.c \
 				./utils/ft_atoi.c \
-				./utils/utils.c \
+				./utils/utils_part1.c \
+				./utils/utils_part2.c \
 				./utils/ft_strlen.c \
 				./utils/ft_strcmp.c \
 				./utils/ft_lstsize.c \
