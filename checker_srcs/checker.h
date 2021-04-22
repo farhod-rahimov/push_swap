@@ -36,7 +36,8 @@ void	ft_printos(t_instr *head); //delete
 void	ft_print(t_stack *head);
 
 /******************FT_EXEC_INSTRUCTIONS.C******************/
-void	ft_exec_instructions(t_instr *head_instr, t_stack **head_stack_a, int debug_flag);
+void	ft_exec_instructions(t_instr *head_instr, \
+		t_stack **head_stack_a, int debug_flag);
 void	ft_print_stacks(t_stack *a, t_stack *b, t_instr *current_instr);
 
 /******************FT_SWAP.C******************/
