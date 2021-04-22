@@ -32,8 +32,6 @@ void	ft_check_duplicates_main(t_stack *head_stack_a);
 void	ft_get_instructions(t_instr *instructions_head);
 void	ft_check_if_instr_are_correct(t_instr *instructions_head);
 char	**ft_get_possible_instr(void);
-void	ft_printos(t_instr *head); //delete
-void	ft_print(t_stack *head);
 
 /******************FT_EXEC_INSTRUCTIONS.C******************/
 void	ft_exec_instructions(t_instr *head_instr, \

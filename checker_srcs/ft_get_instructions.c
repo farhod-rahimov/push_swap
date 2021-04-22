@@ -89,13 +89,3 @@ t_instr	*ft_push_back(t_instr *prev)
 	ft_bzero(new_element->str, sizeof(char) * 5);
 	return (new_element);
 }
-
-void	ft_printos(t_instr *head)
-{
-	while (head)
-	{
-		if (ft_strcmp(head->str, ""))
-			printf("%s", head->str);
-		head = head->next;
-	}
-}

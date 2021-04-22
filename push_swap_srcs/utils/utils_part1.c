@@ -43,13 +43,3 @@ void	ft_free_stack(t_stack *head)
 		free(tmp);
 	}
 }
-
-void	ft_print(t_stack *head)
-{
-	while (head)
-	{
-		printf("%d ", head->value);
-		head = head->next;
-	}
-	printf("\n");
-}
