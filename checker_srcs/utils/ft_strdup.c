@@ -1,4 +1,4 @@
-#include "test.h"
+#include "../checker.h"
 
 char	*ft_strdup(const char *s1)
 {
