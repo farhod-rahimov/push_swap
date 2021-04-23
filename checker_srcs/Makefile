@@ -34,7 +34,7 @@ all: 			$(NAME)
 
 $(NAME):		$(OBJS)
 				@ $(GCC) -o $(NAME) $(OBJS)
-				@ echo 'checker built, run ./checker'
+				@ echo "checker built, run command './checker' or './checker -v' for debugging"
 
 clean:
 				@ rm -f $(OBJS)

@@ -42,7 +42,7 @@ all: 			$(NAME)
 
 $(NAME):		$(OBJS)
 				@ $(GCC) -o $(NAME) $(OBJS)
-				@ echo 'push_swap built, run ./push_swap'
+				@ echo "push_swap built, run command './push_swap'"
 
 clean:
 				@ rm -f $(OBJS)
