@@ -2,8 +2,8 @@
 
 int	ft_get_median(t_stack *head, int list_size)
 {
-	int	*array;
-	int	median;
+	int				*array;
+	long long int	median;
 
 	if (list_size == 1)
 		return (head->value);
@@ -11,11 +11,14 @@ int	ft_get_median(t_stack *head, int list_size)
 	if (!ft_check_if_stack_is_sorted(array, list_size))
 		ft_sort_array(array, 0, list_size - 1, 0);
 	if (list_size % 2 == 0)
-		median = (array[(list_size / 2)] + array[list_size / 2 - 1]) / 2;
+	{
+		median = array[(list_size / 2)];
+		median = (median + array[(list_size / 2) - 1]) / 2;
+	}
 	else
 		median = array[list_size / 2];
 	free(array);
-	return (median);
+	return ((int)median);
 }
 
 int	ft_check_if_stack_is_sorted(int	*array, int list_size)

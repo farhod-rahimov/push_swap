@@ -131,3 +131,6 @@ s9
 
 
 
+./push_swap $arg | ./checker $arg ; ./push_swap $arg | wc -l
+OK
+       7
